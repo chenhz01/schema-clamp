@@ -4,6 +4,8 @@ Clamp LLM JSON output to a schema: validate a JSON Schema subset, locate every v
 
 As of 2026-10-11, three rounds of repository search found no direct equivalent found for a standalone, stdlib-only validate-locate-suggest clamp tool ("no direct equivalent found as of 2026-10-11").
 
+<p align="center"><img src="docs/demo.gif" alt="demo" width="720"></p>
+
 ## Problem
 
 LLMs are asked to emit JSON; they emit *almost* JSON. The response is valid JSON but violates the schema: a required field is missing, `"42"` arrives where `42` was expected, an enum member is misspelled. Downstream code then fails with a `KeyError` or `TypeError` far from the actual defect, and the debugging loop re-prompts blindly because nothing says *where* the document went wrong or *what* would fix it.
